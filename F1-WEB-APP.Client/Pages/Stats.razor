@@ -1,0 +1,40 @@
+﻿@page "/stats"
+@rendermode InteractiveAuto
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Stats</h1>
+<div class="form-control">
+    <form id="season_form">
+        <label id="form_label" for="season_select" class="form-label">Choose Season</label>
+        <select id="season_select" name="season" class="form-select" @bind="selectedSeason">
+            @foreach (var season in GetF1Seasons())
+            {
+                    <option class="form-text" value="@season">@season</option>
+            }
+        </select>
+        <button id="get_stats" class="btn btn-primary" type="button" @onclick="GetStats">Show Statistics</button>
+    </form>
+</div>
+
+@code {
+
+    private int selectedSeason; 
+
+    private void GetStats()
+    {
+        int selectedValue = selectedSeason;
+
+        // TODO: Get stats from API
+    }
+
+    private List<int> GetF1Seasons()
+    {
+        List<int> seasons = new List<int>();
+        for (int year = DateTime.Now.Year; year >= 1950; year--)
+        {
+            seasons.Add(year);
+        }
+        return seasons;
+    }
+}
