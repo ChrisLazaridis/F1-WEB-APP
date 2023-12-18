@@ -9,5 +9,5 @@ obj/
 # Ignore configuration files
 F1DataAccessConfiguration.cs
 #ignore vs and jb files
-.vs/
-.idea/
+.vs
+.idea
